@@ -5,6 +5,10 @@ def START_NAVIGATE(DESTINATION: str) -> None:
     Initialise navigation.
     
     This function uses the START_NAVIGATE intent to open the map app, search about the input location, and start the navigation ability.
+
+    Args:
+        DESTINATION (str): The destination of the route.
+            - Provide a place name or address string, e.g. "Changi Airport", "Marina Bay Sands".
     """
     pass
 
@@ -235,6 +239,168 @@ def MAKE_CALL(
     """
     pass
 
+def READ_EMAIL(
+    MESSAGE_ID: str = None,
+    QUERY: str = None,
+    LABELS: List[str] = None,
+    MAX_RESULTS: int = 50,
+    INCLUDE_BODY: bool = True,
+) -> None:
+    """
+    Read emails from the user's mailbox.
+
+    Use either a specific MESSAGE_ID or search filters to retrieve one or more emails.
+
+    Args:
+        MESSAGE_ID:
+            Unique ID of the email to read. If provided, other filters are ignored.
+        QUERY:
+            Free-text search using standard email operators, e.g., from:, subject:, before:, after:, label:.
+        LABELS:
+            Filter by labels/folders, e.g., ["INBOX", "STARRED"].
+        MAX_RESULTS:
+            Maximum number of emails to return. Default: 50.
+        INCLUDE_BODY:
+            Whether to include the full HTML/text body for each email. Default: True.
+    """
+    pass
+
+
+def SEND_EMAIL(
+    TO: List[str],
+    SUBJECT: str,
+    BODY_TEXT: str = None,
+    BODY_HTML: str = None,
+    CC: List[str] = None,
+    BCC: List[str] = None,
+    ATTACHMENTS: List[Dict[str, Any]] = None,
+    IN_REPLY_TO: str = None,
+    THREAD_ID: str = None,
+    HEADERS: Dict[str, str] = None,
+    PRIORITY: Literal["NORMAL", "HIGH", "LOW"] = "NORMAL",
+    SCHEDULE_TIME: str = None,
+) -> None:
+    """
+    Send an email from the user's mailbox.
+
+    Creates and sends a new message. Can reply in an existing thread and/or attach files.
+
+    Args:
+        TO:
+            Primary recipients.
+        SUBJECT:
+            Email subject line.
+        BODY_TEXT:
+            Plain-text body. Provide at least one of BODY_TEXT or BODY_HTML.
+        BODY_HTML:
+            HTML body. Provide at least one of BODY_TEXT or BODY_HTML.
+        CC:
+            Carbon-copy recipients.
+        BCC:
+            Blind-carbon-copy recipients.
+        ATTACHMENTS:
+            A list of attachments with {filename, mime_type, content_base64} or {file_id}.
+        IN_REPLY_TO:
+            Message ID this email replies to.
+        THREAD_ID:
+            Existing thread ID.
+        HEADERS:
+            Additional RFC-822 headers (key/value).
+        PRIORITY:
+            Email priority. Default: "NORMAL".
+        SCHEDULE_TIME:
+            Future send time in ISO 8601 UTC. If omitted, sends immediately.
+    """
+    pass
+
+
+def WRITE_EMAIL(
+    DRAFT_ID: str = None,
+    TO: List[str] = None,
+    SUBJECT: str = None,
+    BODY_TEXT: str = None,
+    BODY_HTML: str = None,
+    CC: List[str] = None,
+    BCC: List[str] = None,
+    ATTACHMENTS: List[Dict[str, Any]] = None,
+    IN_REPLY_TO: str = None,
+    HEADERS: Dict[str, str] = None,
+) -> None:
+    """
+    Create or update an email draft without sending.
+
+    Args:
+        DRAFT_ID:
+            Existing draft ID. If omitted, a new draft is created.
+        TO:
+            Primary recipients.
+        SUBJECT:
+            Email subject line.
+        BODY_TEXT:
+            Plain-text body.
+        BODY_HTML:
+            HTML body.
+        CC:
+            Carbon-copy recipients.
+        BCC:
+            Blind-carbon-copy recipients.
+        ATTACHMENTS:
+            Attachments with content or file ID.
+        IN_REPLY_TO:
+            Message ID this draft would reply to.
+        HEADERS:
+            Additional RFC-822 headers (key/value).
+    """
+    pass
+
+
+def PAY_REPAYMENT(
+    ENTITY_NAME: str,
+    ENTITY_ID: str,
+    ENTITY_GROUP_ID: str = None,
+    DISPLAY_NAME: str = "",
+    DESCRIPTION: str = "",
+    LOGO_URL: str = "",
+    KEYWORDS: List[str] = None,
+    RANKING_HINT: float = None,
+    EXPIRATION_TIME: float = None,
+    METADATA_MODIFICATION_TIME: float = None,
+    ACTIVITY_TYPE: List[str] = None,
+    IS_PUBLIC_DATA: bool = None,
+    EXTRAS: Dict[str, Any] = None,
+) -> None:
+    """
+    Trigger a repayment payment and write or update related metadata.
+
+    Args:
+        ENTITY_NAME:
+            Entity name.
+        ENTITY_ID:
+            Unique identifier, max length 64.
+        ENTITY_GROUP_ID:
+            Grouping identifier for admin use.
+        DISPLAY_NAME:
+            Display name, max length 50.
+        DESCRIPTION:
+            User-facing description, max length 2000.
+        LOGO_URL:
+            Thumbnail URL for UI.
+        KEYWORDS:
+            Search keywords array.
+        RANKING_HINT:
+            Sorting weight, 0 to 100.
+        EXPIRATION_TIME:
+            Expiration timestamp (s or ms).
+        METADATA_MODIFICATION_TIME:
+            Last metadata update timestamp.
+        ACTIVITY_TYPE:
+            Behavior types.
+        IS_PUBLIC_DATA:
+            Whether public-domain data.
+        EXTRAS:
+            Additional extension metadata.
+    """
+    pass
 
 
 
